@@ -34,7 +34,7 @@ function clean() {
 function build() {
   for path in $(_get_packages); do
     echo ">> Building $path..."
-    if ! sui move build --path $path --lint; then
+    if ! sui move build --path $path --lint -e mainnet; then
       exit 1
     fi
   done
@@ -54,16 +54,16 @@ function static_checks() {
 function test() {
   for path in $(_get_packages); do
     echo ">> Testing $path..."
-    if ! sui-debug move test --path "$path" --statistics --coverage; then
+    if ! sui-debug move test --path "$path" --statistics --coverage -e mainnet; then
       exit 1
     fi
 
     if [ -f $path/.coverage_map.mvcov ]
     then
       echo ">> Printing coverage results for $path..."
-      sui move coverage summary --path "$path"
+      sui move coverage summary --path "$path" -e mainnet
 
-      if [ -z "$(sui move coverage summary --path "$path" | grep "% Move Coverage: 100.00")" ]
+      if [ -z "$(sui move coverage summary --path "$path" -e mainnet | grep "% Move Coverage: 100.00")" ]
       then
         echo ">> Coverage is not at 100%!"
         exit 1

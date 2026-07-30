@@ -2,5 +2,6 @@ bin/
 build/
 .coverage_map.mvcov
 .trace
+traces/
 logs/
 *.log
