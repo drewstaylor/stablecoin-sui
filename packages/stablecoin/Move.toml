@@ -20,7 +20,9 @@ edition = "2024.beta"
 license = "Apache 2.0"
 
 [dependencies.sui_extensions]
-local = "../sui_extensions"
+git = "https://github.com/drewstaylor/stablecoin-sui.git"
+subdir = "packages/sui_extensions"
+rev = "feature/explorer-verification"
 
 [addresses]
 stablecoin = "0x0"
