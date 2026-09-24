@@ -17,13 +17,13 @@ manifest_digest = "CD547CB1ACCE0880C835DAED2D8FFCB91D56C833AE5240D3AA5B918398263
 deps = { MoveStdlib = "MoveStdlib" }
 
 [pinned.mainnet.stablecoin]
-source = { local = "../stablecoin" }
+source = { git = "https://github.com/drewstaylor/stablecoin-sui.git", subdir = "packages/stablecoin", rev = "4170d80845644332aac40bdf181d714a1d8ac961" }
 use_environment = "mainnet"
-manifest_digest = "6B08AFABA09DC0D0216E97EB27C33CD7A3791E8DC3631C94FB08528F77C1E3AD"
+manifest_digest = "EBA42C3BD3CA7B107DB57BA4870C827405F96FF0D9A37395432A23B37D285204"
 deps = { std = "MoveStdlib", sui = "Sui", sui_extensions = "sui_extensions" }
 
 [pinned.mainnet.sui_extensions]
-source = { local = "../sui_extensions" }
+source = { git = "https://github.com/drewstaylor/stablecoin-sui.git", subdir = "packages/sui_extensions", rev = "4170d80845644332aac40bdf181d714a1d8ac961" }
 use_environment = "mainnet"
 manifest_digest = "E41BBD67BE8940D26C79D78B028477EF5B33BA217A1282C78ACB344CF8A5ECF6"
 deps = { std = "MoveStdlib", sui = "Sui" }
@@ -31,5 +31,5 @@ deps = { std = "MoveStdlib", sui = "Sui" }
 [pinned.mainnet.usdc]
 source = { root = true }
 use_environment = "mainnet"
-manifest_digest = "788C6B27120436CD3E830FCCF96E10F05916A959631D98C03DF6F01EE4EACA6D"
+manifest_digest = "C01C9B3CE79101A18FA12A7ED52C687063A9B041BACFDCFFF645A3160145E39C"
 deps = { stablecoin = "stablecoin", std = "MoveStdlib", sui = "Sui", sui_extensions = "sui_extensions" }
